@@ -45,18 +45,21 @@ let start = async () => {
             return console.log(err)
         }
 
-        OpenBrowsers(urls.localUrl)
+        
 
-        [ 'SIGINT', 'SIGTERM' ].forEach(sig => {
+        ['SIGINT','SIGTERM'].forEach(sig => {
+            console.log(sig, '测试》》》');
             process.on(sig, () => {
                 devServer.close();
                 process.exit();
             })
         })
+        OpenBrowsers(urls.localUrl)
     })
 
 }
 start();
+
 
 console.log(PORT)
 
